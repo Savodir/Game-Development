@@ -13,5 +13,6 @@ namespace Vancluysen.Carl.Collision
         {
             return r1.Intersects(r2) && checkbool == true;
         }
+       
     }
 }

@@ -14,12 +14,10 @@ namespace Vancluysen.Carl
 {
     class player
     {
-        private Texture2D shibagfx;
-        private int maxjump = 450;
         private Vector2 spriteOrigin;
         private Vector2 velocity;
         private Vector2 spawnPosition = new Vector2(0,525);
-        private Vector2 position = new Vector2(2156,1075);
+        private Vector2 position = new Vector2(2156,525);
         private int life = 5;
         public Vector2 Position
         {
@@ -365,12 +363,17 @@ namespace Vancluysen.Carl
             else flip = false;
         }
 
-        public void EventChecker(Rectangle rect, int eventID)
+        public void EventChecker(Rectangle rect, int eventID, Levels level)
         {
             if (rectangle.TreeChecker(rect, pee == true, eventID = 0))
             {
                 spawnPosition.X = rectangle.X;
                 spawnPosition.Y = rectangle.Y;
+            }
+            if(rectangle.TreeChecker(rect, bark == true, eventID = 2))
+            {
+                level.Levelid++;
+                level.LevelSelector();
             }
         }
         private bool isStill()

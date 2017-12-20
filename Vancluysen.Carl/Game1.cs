@@ -23,6 +23,8 @@ namespace Vancluysen.Carl
         Levels level;
         private Camera camera;
         private Texture2D enemygfx;
+        private Texture2D tree;
+        private Texture2D mapEnd;
         private Enemy enemy;
         EntityManager entityManager;
         private Leveleditor.EventHandler eventHandler;
@@ -37,7 +39,6 @@ namespace Vancluysen.Carl
         Rectangle bposUnder;
         Texture2D background;
         Texture2D backgroundUnderground;
-        private Texture2D tree;
         int backgroundWidth = 800;
         int backgroundHeight = 600;
         #endregion
@@ -82,6 +83,7 @@ namespace Vancluysen.Carl
             bpos = new Rectangle(0, 0, 1920, 700);
             bposUnder = new Rectangle(0, 700,2500,600);
             tree = Content.Load<Texture2D>("tree");
+            mapEnd = Content.Load<Texture2D>("flag");
             backgroundUnderground = Content.Load<Texture2D>("ruien");            //Enemies
             enemygfx = Content.Load<Texture2D>("police");
             LoadEnemies();
@@ -92,7 +94,7 @@ namespace Vancluysen.Carl
             EntityManager.Content = Content;
             Levels.Content = Content;
             Events.Content = Content;
-            level.LevelSelector(levelid);
+            level.LevelSelector();
             //Menu
             IsMouseVisible = true;
             btnStart = new Menu(Content.Load<Texture2D>("paw"), graphics.GraphicsDevice);
@@ -101,7 +103,6 @@ namespace Vancluysen.Carl
             pausedRectangle = new Rectangle(0, 0, pausedTexture.Width, pausedTexture.Height);
             btnQuit = new Menu(Content.Load<Texture2D>("Quit"), graphics.GraphicsDevice);
             btnQuit.pos(new Vector2(350,275));
-            //Events
             //Apply
             graphics.ApplyChanges();
         }
@@ -165,7 +166,7 @@ namespace Vancluysen.Carl
                         }
                         foreach (Events events in eventHandler.EventsList)
                         {
-                           player.EventChecker(events.Rectangle, events.EventID);
+                           player.EventChecker(events.Rectangle, events.EventID, level);
                         }
                         //Update
                         entityManager.Update(gameTime, levelid);
@@ -204,10 +205,10 @@ namespace Vancluysen.Carl
                     entityManager.Enemies.Add(new Enemy(enemygfx, new Vector2(1000, 600), 90)); 
                     eventHandler.EventsList.Add(new Events(0,tree, new Vector2( 690, 430)));
                     eventHandler.EventsList.Add(new Events(0,tree, new Vector2(2140, 1030)));
+                    eventHandler.EventsList.Add(new Events(2, mapEnd, new Vector2(2325, 285)));
                     break;
             }
         }
-
         /// <summary>
         /// This is called when the game should draw itself.
         /// </summary>

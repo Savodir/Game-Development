@@ -52,7 +52,8 @@
     <Compile Include="Leveleditor\CollisionTiles.cs" />
     <Compile Include="Leveleditor\EventHandler.cs" />
     <Compile Include="Leveleditor\Events.cs" />
-    <Compile Include="Leveleditor\Levels.cs" />
+    <Compile Include="Leveleditor\Lvl1.cs" />
+    <Compile Include="Leveleditor\Lvl2.cs" />
     <Compile Include="Leveleditor\TileMap.cs" />
     <Compile Include="Menu.cs" />
     <Compile Include="player.cs" />

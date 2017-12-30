@@ -28,7 +28,7 @@ namespace Vancluysen.Carl.AI
 
         private int levelid;
 
-        public void Update(GameTime gameTime, int id)
+        public void Update(GameTime gameTime)
         {
 
             foreach (Enemy enemies in enemies)

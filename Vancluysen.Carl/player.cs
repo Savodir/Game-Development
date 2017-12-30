@@ -17,7 +17,7 @@ namespace Vancluysen.Carl
         private Vector2 spriteOrigin;
         private Vector2 velocity;
         private Vector2 spawnPosition = new Vector2(0,525);
-        private Vector2 position = new Vector2(2156,525);
+        private Vector2 position = new Vector2(2000,525);
         private int life = 5;
         public Vector2 Position
         {
@@ -346,10 +346,10 @@ namespace Vancluysen.Carl
             {
                 velocity.Y = 1f;
             }
-            if (position.Y > y - rectangle.Height)
+        /*    if (position.Y > y - rectangle.Height)
             {
                 position.Y = y - rectangle.Height;
-            }
+            } */
             
         }
 
@@ -363,17 +363,25 @@ namespace Vancluysen.Carl
             else flip = false;
         }
 
-        public void EventChecker(Rectangle rect, int eventID, Levels level)
+        public void EventChecker(Rectangle rect, int ID, TileMap currentMap, Lvl1 lvl1, Lvl2 lvl2)
         {
-            if (rectangle.TreeChecker(rect, pee == true, eventID = 0))
+            if (rectangle.TreeChecker(rect, pee == true, ID = 0))
             {
                 spawnPosition.X = rectangle.X;
                 spawnPosition.Y = rectangle.Y;
             }
-            if(rectangle.TreeChecker(rect, bark == true, eventID = 2))
+            if(rectangle.TreeChecker(rect, bark == true, ID = 1))
             {
-                level.Levelid++;
-                level.LevelSelector();
+                if (lvl1.Finished == false)
+                {
+                    spawnPosition.X = 0;
+                    spawnPosition.Y = 525;
+                    position.X = 0;
+                    position.Y = 525;
+                    currentMap.LevelID++;
+                    lvl1.Finished = true;
+                    
+                }
             }
         }
         private bool isStill()

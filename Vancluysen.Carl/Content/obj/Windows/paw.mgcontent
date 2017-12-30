@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <PipelineBuildEvent xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-  <SourceFile>D:/Game Development/Vancluysen.Carl/Vancluysen.Carl/Content/paw.png</SourceFile>
+  <SourceFile>E:/Game Development/Vancluysen.Carl/Vancluysen.Carl/Content/paw.png</SourceFile>
   <SourceTime>2017-12-17T15:38:44+01:00</SourceTime>
-  <DestFile>D:/Game Development/Vancluysen.Carl/Vancluysen.Carl/Content/bin/Windows/paw.xnb</DestFile>
-  <DestTime>2017-12-20T13:11:41.6213432+01:00</DestTime>
+  <DestFile>E:/Game Development/Vancluysen.Carl/Vancluysen.Carl/Content/bin/Windows/paw.xnb</DestFile>
+  <DestTime>2017-12-30T19:35:33.3195926+01:00</DestTime>
   <Importer>TextureImporter</Importer>
   <ImporterTime>2017-03-01T16:05:36+01:00</ImporterTime>
   <Processor>TextureProcessor</Processor>

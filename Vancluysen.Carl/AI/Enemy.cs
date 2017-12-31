@@ -84,6 +84,12 @@ namespace Vancluysen.Carl.AI
             }
         }
 
+        public void ChangePosition(Vector2 _position, float _distance)
+        {
+            position = _position;
+            distance = _distance;
+            oldDistance = distance;
+        }
         private Animation PoliceWalk;
         private void LoadAnimation()
         {

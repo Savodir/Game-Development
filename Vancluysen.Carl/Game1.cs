@@ -82,10 +82,6 @@ namespace Vancluysen.Carl
             //Background
             graphics.PreferredBackBufferWidth = backgroundWidth;
             graphics.PreferredBackBufferHeight = backgroundHeight;
-            tree = Content.Load<Texture2D>("tree");
-            mapEnd = Content.Load<Texture2D>("flag");
-            enemygfx = Content.Load<Texture2D>("police");
-            LoadEnemies();
             //Player
             player = new player(Content.Load<Texture2D>("shiba"));
             //Level
@@ -156,18 +152,18 @@ namespace Vancluysen.Carl
                             camera.Update(player.Position, Current.Width, Current.Height);
                         }
                         //Enemy Collision pls help
-                        foreach (Enemy enemies in entityManager.Enemies)
+                        foreach (Enemy enemies in Current.EntityManager.Enemies)
                         {
                      //      player.EnemyCollision(enemies.Rectangle);
                             Console.WriteLine("Enemy: " + enemies.Rectangle);
                         }
-                        foreach (Events events in eventHandler.EventsList)
+                        foreach (Events events in Current.EventHandler.EventsList)
                         {
                            player.EventChecker(events.Rectangle, events.EventID, Current, Lvl1, Lvl2);
                         }
                         if (Lvl1.Finished == true) Current = Lvl2;
                         //Update
-                        entityManager.Update(gameTime);
+                        Current.EntityManager.Update(gameTime);
                         player.Update(gameTime);
                     }
                     //Pause
@@ -191,18 +187,6 @@ namespace Vancluysen.Carl
             
         }
 
-        public void LoadEnemies()
-        {
-               
-                    entityManager.Enemies.Add(new Enemy(enemygfx, new Vector2(0, 0), 90));
-                    entityManager.Enemies.Add(new Enemy(enemygfx, new Vector2(630, 432), 90));
-                    entityManager.Enemies.Add(new Enemy(enemygfx, new Vector2(400, 432), 90));
-                    entityManager.Enemies.Add(new Enemy(enemygfx, new Vector2(1000, 600), 90)); 
-                    eventHandler.EventsList.Add(new Events(0,tree, new Vector2( 690, 430)));
-                    eventHandler.EventsList.Add(new Events(0,tree, new Vector2(2140, 1030)));
-                    eventHandler.EventsList.Add(new Events(2, mapEnd, new Vector2(2325, 285)));
-
-        }
         /// <summary>
         /// This is called when the game should draw itself.
         /// </summary>
@@ -222,9 +206,9 @@ namespace Vancluysen.Carl
                     spriteBatch.End();
                     spriteBatch.Begin(SpriteSortMode.Deferred, BlendState.AlphaBlend, null, null, null, null, camera.Transform);
                     Current.Draw(spriteBatch);
-                    entityManager.Draw(spriteBatch);
+                    Current.EntityManager.Draw(spriteBatch);
                     player.Controls();
-                    eventHandler.Draw(spriteBatch);
+                    Current.EventHandler.Draw(spriteBatch);
                     player.Draw(spriteBatch);
                     spriteBatch.End();
                     break;

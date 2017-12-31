@@ -7,6 +7,7 @@ using System.Threading.Tasks;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Content;
 using Microsoft.Xna.Framework.Graphics;
+using Vancluysen.Carl.AI;
 
 namespace Vancluysen.Carl.Leveleditor
 {
@@ -22,8 +23,7 @@ namespace Vancluysen.Carl.Leveleditor
 
         protected Rectangle bpos;
         protected Rectangle bposUnder;
-        protected Texture2D background;
-        protected Texture2D backgroundUnderground;
+        protected Texture2D background, backgroundUnderground, enemygfx, tree, mapEnd;
         private int width;
 
         public int Width
@@ -39,12 +39,32 @@ namespace Vancluysen.Carl.Leveleditor
             set { height = value; }
         }
 
+        private EventHandler eventHandler;
+
+        public EventHandler EventHandler
+        {
+            get { return eventHandler; }
+            set { eventHandler = value; }
+        }
+        private EntityManager entityManager;
+
+        public EntityManager EntityManager
+        {
+            get { return entityManager; }
+            set { entityManager = value; }
+        }
+
         private ContentManager Content;
         public TileMap(ContentManager _content)
         {
             Content = _content;
+            tree = Content.Load<Texture2D>("tree");
+            mapEnd = Content.Load<Texture2D>("flag");
+            enemygfx = Content.Load<Texture2D>("police");
             bpos = new Rectangle(0, 0, 2550, 700);
             bposUnder = new Rectangle(0, 700, 2550, 600);
+            entityManager = new EntityManager();
+            eventHandler = new EventHandler();
         }
 
         private int levelID = 1;

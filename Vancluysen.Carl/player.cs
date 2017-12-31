@@ -363,7 +363,7 @@ namespace Vancluysen.Carl
             else flip = false;
         }
 
-        public void EventChecker(Rectangle rect, int ID, TileMap currentMap, Lvl1 lvl1, Lvl2 lvl2)
+        public void EventChecker(Rectangle rect, int ID, TileMap currentMap, Lvl1 lvl1, Lvl2 lvl2, SpriteBatch spriteBatch)
         {
             if (rectangle.TreeChecker(rect, pee == true, ID = 0))
             {
@@ -376,11 +376,14 @@ namespace Vancluysen.Carl
                 {
                     spawnPosition.X = 0;
                     spawnPosition.Y = 525;
-                    position.X = 1200;
-                    position.Y = 1100;
+                    position.X = 2100;
+                    position.Y = 525;
                     currentMap.LevelID++;
-                    lvl1.Finished = true;
-                    
+                    currentMap.Finished = true;
+                }
+                if (lvl2.Finished == false && lvl1.Finished == true)
+                {
+                    currentMap.Finished = true;
                 }
             }
         }

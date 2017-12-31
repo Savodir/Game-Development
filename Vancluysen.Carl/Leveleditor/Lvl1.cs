@@ -19,13 +19,6 @@ class Lvl1: TileMap
         get { return rectangle; }
         set { rectangle = value; }
     }
-        private bool finished;
-
-        public bool Finished
-        {
-            get { return finished; }
-            set { finished = value; }
-        }
 
         private static ContentManager content;
 
@@ -37,6 +30,7 @@ class Lvl1: TileMap
 
         public Lvl1(ContentManager Content):base(Content)
         {       Generate();
+            Finished = false;
             background = Content.Load<Texture2D>("harbor");
             backgroundUnderground = Content.Load<Texture2D>("ruien");
             EntityManager.Enemies.Add(new Enemy(enemygfx, new Vector2(600, 432), 90));

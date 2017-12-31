@@ -27,8 +27,6 @@ namespace Vancluysen.Carl
         private Texture2D tree;
         private Texture2D mapEnd;
         private Enemy enemy;
-        EntityManager entityManager;
-        private Leveleditor.EventHandler eventHandler;
         //Menu
         private Menu btnStart, btnQuit;
         private bool paused = false;
@@ -63,8 +61,6 @@ namespace Vancluysen.Carl
         {
             // TODO: Add your initialization logic here
             camera = new Camera(GraphicsDevice.Viewport);
-            entityManager = new EntityManager();
-            eventHandler = new Leveleditor.EventHandler();
             Lvl1 = new Lvl1(Content);
             Lvl2 = new Lvl2(Content);
             Current = Lvl1;
@@ -159,9 +155,10 @@ namespace Vancluysen.Carl
                         }
                         foreach (Events events in Current.EventHandler.EventsList)
                         {
-                           player.EventChecker(events.Rectangle, events.EventID, Current, Lvl1, Lvl2);
+                           player.EventChecker(events.Rectangle, events.EventID, Current, Lvl1, Lvl2, spriteBatch);
                         }
-                        if (Lvl1.Finished == true) Current = Lvl2;
+                        if (Lvl1.Finished == true) Current = Lvl2; 
+                      spriteBatch.End();
                         //Update
                         Current.EntityManager.Update(gameTime);
                         player.Update(gameTime);
@@ -183,8 +180,8 @@ namespace Vancluysen.Carl
                     }
                     break;
             }
+            Console.WriteLine(Lvl2.Finished);
 
-            
         }
 
         /// <summary>
@@ -210,6 +207,14 @@ namespace Vancluysen.Carl
                     player.Controls();
                     Current.EventHandler.Draw(spriteBatch);
                     player.Draw(spriteBatch);
+
+
+                /*    if (Lvl2.Finished == true)
+                    {
+                        spriteBatch.Begin();
+                        spriteBatch.Draw(Content.Load<Texture2D>("endscreen"), new Rectangle(0, 0, backgroundWidth, backgroundHeight), Color.White);
+                    }*/
+
                     spriteBatch.End();
                     break;
             }

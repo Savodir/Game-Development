@@ -21,13 +21,6 @@ namespace Vancluysen.Carl.Leveleditor
             get { return rectangle; }
             set { rectangle = value; }
         }
-        private bool finished;
-
-        public bool Finished
-        {
-            get { return finished; }
-            set { finished = value; }
-        }
 
         private static ContentManager content;
 
@@ -39,10 +32,11 @@ namespace Vancluysen.Carl.Leveleditor
 
         public Lvl2(ContentManager Content):base(Content)
         {
-            finished = false;
             background = Content.Load<Texture2D>("centraalstation");
             backgroundUnderground = Content.Load<Texture2D>("metro");
             Generate();
+            Finished = false;
+
             EntityManager.Enemies.Add(new Enemy(enemygfx, new Vector2(450, 580), 90));
             EntityManager.Enemies.Add(new Enemy(enemygfx, new Vector2(1000, 380), 90));
             EntityManager.Enemies.Add(new Enemy(enemygfx, new Vector2(1300, 1130), 150));

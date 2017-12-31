@@ -53,6 +53,13 @@ namespace Vancluysen.Carl.Leveleditor
             get { return entityManager; }
             set { entityManager = value; }
         }
+        private bool finished;
+
+        public bool Finished
+        {
+            get { return finished; }
+            set { finished = value; }
+        }
 
         private ContentManager Content;
         public TileMap(ContentManager _content)

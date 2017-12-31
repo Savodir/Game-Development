@@ -109,3 +109,4 @@ E:\Game Development\Vancluysen.Carl\Vancluysen.Carl\bin\Windows\x86\Debug\Conten
 E:\Game Development\Vancluysen.Carl\Vancluysen.Carl\bin\Windows\x86\Debug\Content\tile7.xnb
 E:\Game Development\Vancluysen.Carl\Vancluysen.Carl\bin\Windows\x86\Debug\Content\tile8.xnb
 E:\Game Development\Vancluysen.Carl\Vancluysen.Carl\bin\Windows\x86\Debug\Content\tile9.xnb
+E:\Game Development\Vancluysen.Carl\Vancluysen.Carl\bin\Windows\x86\Debug\Content\endscreen.xnb

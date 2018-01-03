@@ -110,3 +110,7 @@ E:\Game Development\Vancluysen.Carl\Vancluysen.Carl\bin\Windows\x86\Debug\Conten
 E:\Game Development\Vancluysen.Carl\Vancluysen.Carl\bin\Windows\x86\Debug\Content\tile8.xnb
 E:\Game Development\Vancluysen.Carl\Vancluysen.Carl\bin\Windows\x86\Debug\Content\tile9.xnb
 E:\Game Development\Vancluysen.Carl\Vancluysen.Carl\bin\Windows\x86\Debug\Content\endscreen.xnb
+E:\Game Development\Vancluysen.Carl\Vancluysen.Carl\bin\Windows\x86\Debug\Content\lives.xnb
+E:\Game Development\Vancluysen.Carl\Vancluysen.Carl\bin\Windows\x86\Debug\Content\gameover.xnb
+E:\Game Development\Vancluysen.Carl\Vancluysen.Carl\bin\Windows\x86\Debug\Content\lifetaken.xnb
+E:\Game Development\Vancluysen.Carl\Vancluysen.Carl\bin\Windows\x86\Debug\Content\lifepoint.xnb

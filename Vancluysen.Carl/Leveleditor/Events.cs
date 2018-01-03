@@ -20,6 +20,13 @@ namespace Vancluysen.Carl.Leveleditor
             set { content = value; }
         }
         private Texture2D texture;
+
+        public Texture2D Texture
+        {
+            get { return texture; }
+            set { texture = value; }
+        }
+
         private int eventID;
 
         public int EventID
@@ -35,6 +42,14 @@ namespace Vancluysen.Carl.Leveleditor
         {
             get { return rectangle; }
             set { rectangle = value; }
+        }
+
+        private bool isChecker;
+
+        public bool IsChecked
+        {
+            get { return isChecker; }
+            set { isChecker = value; }
         }
 
         public Events(int _eventID, Texture2D _texture, Vector2 _position)

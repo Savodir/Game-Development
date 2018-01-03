@@ -9,7 +9,7 @@ namespace Vancluysen.Carl.Collision
 {
   static  class EventChecker
     {
-        public static bool TreeChecker(this Rectangle r1, Rectangle r2, bool checkbool, int eventiD)
+        public static bool eventCheck(this Rectangle r1, Rectangle r2, bool checkbool)
         {
             return r1.Intersects(r2) && checkbool == true;
         }

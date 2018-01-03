@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <PipelineBuildEvent xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
   <SourceFile>E:/Game Development/Vancluysen.Carl/Vancluysen.Carl/Content/endscreen.png</SourceFile>
-  <SourceTime>2017-05-25T21:08:32+02:00</SourceTime>
+  <SourceTime>2018-01-03T03:09:02.3962892+01:00</SourceTime>
   <DestFile>E:/Game Development/Vancluysen.Carl/Vancluysen.Carl/Content/bin/Windows/endscreen.xnb</DestFile>
-  <DestTime>2017-12-31T03:55:19.0585658+01:00</DestTime>
+  <DestTime>2018-01-03T03:13:40.4483862+01:00</DestTime>
   <Importer>TextureImporter</Importer>
   <ImporterTime>2017-03-01T16:05:36+01:00</ImporterTime>
   <Processor>TextureProcessor</Processor>

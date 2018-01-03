@@ -50,6 +50,7 @@ namespace Vancluysen.Carl.AI
             texture = _texture;
             position = _position;
             distance = _distance;
+            origin = new Vector2(0,0);
             oldDistance = distance;
             LoadAnimation();
             animation = PoliceWalk;
@@ -59,21 +60,19 @@ namespace Vancluysen.Carl.AI
         {
             moveControl(gameTime);
            position += velocity;
-           origin = new Vector2(texture.Width / 2, texture.Height/2);
+          // origin = new Vector2(texture.Width / 2, texture.Height/2);
             if (distance <= 0)
             {
                 right = true;
                 velocity.X = 1f;
-               rectangle = new Rectangle((int)position.X, (int)position.Y, animation.CurrentFrame.SourceRectangle.Width, animation.CurrentFrame.SourceRectangle.Height);
-
             }
         else if (distance >= oldDistance)
             {
                 right = false;
                 velocity.X = -1f;
-               rectangle = new Rectangle((int)position.X, (int)position.Y, animation.CurrentFrame.SourceRectangle.Width, animation.CurrentFrame.SourceRectangle.Height);
 
             }
+
             if (right == true)
             {
                 distance += 1;
@@ -82,6 +81,8 @@ namespace Vancluysen.Carl.AI
             {
                distance -= 1f;
             }
+            rectangle = new Rectangle((int)position.X, (int)position.Y, animation.CurrentFrame.SourceRectangle.Width, animation.CurrentFrame.SourceRectangle.Height);
+
         }
 
         public void ChangePosition(Vector2 _position, float _distance)

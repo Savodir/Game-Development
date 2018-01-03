@@ -1,20 +1,20 @@
 <?xml version="1.0" encoding="utf-8"?>
 <PipelineBuildEvent xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
   <SourceFile>E:/Game Development/Vancluysen.Carl/Vancluysen.Carl/Content/police.png</SourceFile>
-  <SourceTime>2017-12-16T19:41:28+01:00</SourceTime>
+  <SourceTime>2018-01-03T05:48:23.5233333+01:00</SourceTime>
   <DestFile>E:/Game Development/Vancluysen.Carl/Vancluysen.Carl/Content/bin/Windows/police.xnb</DestFile>
-  <DestTime>2017-12-30T19:35:33.2725471+01:00</DestTime>
+  <DestTime>2018-01-03T05:48:57.7321617+01:00</DestTime>
   <Importer>TextureImporter</Importer>
   <ImporterTime>2017-03-01T16:05:36+01:00</ImporterTime>
   <Processor>TextureProcessor</Processor>
   <ProcessorTime>2017-03-01T16:05:36+01:00</ProcessorTime>
   <Parameters>
     <Key>ColorKeyColor</Key>
-    <Value>128,128,128,255</Value>
+    <Value>255,0,255,255</Value>
   </Parameters>
   <Parameters>
     <Key>ColorKeyEnabled</Key>
-    <Value>False</Value>
+    <Value>True</Value>
   </Parameters>
   <Parameters>
     <Key>GenerateMipmaps</Key>

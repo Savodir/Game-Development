@@ -7,10 +7,8 @@
     <File>E:/Game Development/Vancluysen.Carl/Vancluysen.Carl/Content/shiba.png</File>
     <File>E:/Game Development/Vancluysen.Carl/Vancluysen.Carl/Content/harbor.jpg</File>
     <File>E:/Game Development/Vancluysen.Carl/Vancluysen.Carl/Content/p1_front.png</File>
-    <File>E:/Game Development/Vancluysen.Carl/Vancluysen.Carl/Content/police.png</File>
     <File>E:/Game Development/Vancluysen.Carl/Vancluysen.Carl/Content/MenuBack.png</File>
     <File>E:/Game Development/Vancluysen.Carl/Vancluysen.Carl/Content/paw.png</File>
-    <File>E:/Game Development/Vancluysen.Carl/Vancluysen.Carl/Content/Paused.png</File>
     <File>E:/Game Development/Vancluysen.Carl/Vancluysen.Carl/Content/Quit.png</File>
     <File>E:/Game Development/Vancluysen.Carl/Vancluysen.Carl/Content/tree.png</File>
     <File>E:/Game Development/Vancluysen.Carl/Vancluysen.Carl/Content/ruien.jpg</File>
@@ -27,5 +25,11 @@
     <File>E:/Game Development/Vancluysen.Carl/Vancluysen.Carl/Content/tile8.png</File>
     <File>E:/Game Development/Vancluysen.Carl/Vancluysen.Carl/Content/tile9.png</File>
     <File>E:/Game Development/Vancluysen.Carl/Vancluysen.Carl/Content/endscreen.png</File>
+    <File>E:/Game Development/Vancluysen.Carl/Vancluysen.Carl/Content/Paused.png</File>
+    <File>E:/Game Development/Vancluysen.Carl/Vancluysen.Carl/Content/police.png</File>
+    <File>E:/Game Development/Vancluysen.Carl/Vancluysen.Carl/Content/lives.spritefont</File>
+    <File>E:/Game Development/Vancluysen.Carl/Vancluysen.Carl/Content/gameover.jpg</File>
+    <File>E:/Game Development/Vancluysen.Carl/Vancluysen.Carl/Content/lifetaken.png</File>
+    <File>E:/Game Development/Vancluysen.Carl/Vancluysen.Carl/Content/lifepoint.png</File>
   </SourceFiles>
 </SourceFileCollection>

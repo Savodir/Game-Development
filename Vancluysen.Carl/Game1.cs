@@ -33,10 +33,6 @@ namespace Vancluysen.Carl
         private Texture2D pausedTexture;
         private Rectangle pausedRectangle;
         //Background
-        Rectangle bpos;
-        Rectangle bposUnder;
-        Texture2D background;
-        Texture2D backgroundUnderground;
         int backgroundWidth = 800;
         int backgroundHeight = 600;
         #endregion
@@ -79,7 +75,7 @@ namespace Vancluysen.Carl
             graphics.PreferredBackBufferWidth = backgroundWidth;
             graphics.PreferredBackBufferHeight = backgroundHeight;
             //Player
-            player = new player(Content.Load<Texture2D>("shiba"));
+            player = new player(Content.Load<Texture2D>("shiba"), camera, Content, graphics.GraphicsDevice);
             //Level
             EntityManager.Content = Content;
             Lvl1.Content = Content;
@@ -89,7 +85,7 @@ namespace Vancluysen.Carl
             btnStart = new Menu(Content.Load<Texture2D>("paw"), graphics.GraphicsDevice);
             btnStart.pos(new Vector2(350, 350));
             pausedTexture = Content.Load<Texture2D>("Paused");
-            pausedRectangle = new Rectangle(0, 0, pausedTexture.Width, pausedTexture.Height);
+            pausedRectangle = new Rectangle(340, 160, 150, 150);
             btnQuit = new Menu(Content.Load<Texture2D>("Quit"), graphics.GraphicsDevice);
             btnQuit.pos(new Vector2(350,275));
             //Apply
@@ -150,12 +146,12 @@ namespace Vancluysen.Carl
                         //Enemy Collision pls help
                         foreach (Enemy enemies in Current.EntityManager.Enemies)
                         {
-                     //      player.EnemyCollision(enemies.Rectangle);
+                         player.EnemyCollision(enemies.Rectangle);
                             Console.WriteLine("Enemy: " + enemies.Rectangle);
                         }
                         foreach (Events events in Current.EventHandler.EventsList)
                         {
-                           player.EventChecker(events.Rectangle, events.EventID, Current, Lvl1, Lvl2, spriteBatch);
+                           player.EventChecker(events, Current, Lvl1, Lvl2, spriteBatch);
                         }
                         if (Lvl1.Finished == true) Current = Lvl2; 
                       spriteBatch.End();
@@ -207,15 +203,21 @@ namespace Vancluysen.Carl
                     player.Controls();
                     Current.EventHandler.Draw(spriteBatch);
                     player.Draw(spriteBatch);
-
-
-                /*    if (Lvl2.Finished == true)
+                    spriteBatch.End();
+                    if (Lvl2.Finished == true)
                     {
                         spriteBatch.Begin();
                         spriteBatch.Draw(Content.Load<Texture2D>("endscreen"), new Rectangle(0, 0, backgroundWidth, backgroundHeight), Color.White);
-                    }*/
+                        spriteBatch.End();
+                    }
+                    if (player.Lives == 0)
+                    {
+                        spriteBatch.Begin();
+                        spriteBatch.Draw(Content.Load<Texture2D>("gameover"), new Rectangle(0, 0, backgroundWidth, backgroundHeight), Color.White);
+                        spriteBatch.End();
+                    }
 
-                    spriteBatch.End();
+                   
                     break;
             }
             if (paused == true)

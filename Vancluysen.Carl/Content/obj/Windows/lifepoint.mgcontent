@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <PipelineBuildEvent xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-  <SourceFile>E:/Game Development/Vancluysen.Carl/Vancluysen.Carl/Content/Paused.png</SourceFile>
-  <SourceTime>2018-01-03T03:22:37.5716465+01:00</SourceTime>
-  <DestFile>E:/Game Development/Vancluysen.Carl/Vancluysen.Carl/Content/bin/Windows/Paused.xnb</DestFile>
-  <DestTime>2018-01-03T03:22:59.1070139+01:00</DestTime>
+  <SourceFile>E:/Game Development/Vancluysen.Carl/Vancluysen.Carl/Content/lifepoint.png</SourceFile>
+  <SourceTime>2013-12-05T09:54:56+01:00</SourceTime>
+  <DestFile>E:/Game Development/Vancluysen.Carl/Vancluysen.Carl/Content/bin/Windows/lifepoint.xnb</DestFile>
+  <DestTime>2018-01-03T06:54:06.1824566+01:00</DestTime>
   <Importer>TextureImporter</Importer>
   <ImporterTime>2017-03-01T16:05:36+01:00</ImporterTime>
   <Processor>TextureProcessor</Processor>

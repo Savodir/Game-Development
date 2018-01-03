@@ -18,8 +18,13 @@ namespace Vancluysen.Carl
             get { return transform; }
             set { transform = value; }
         }
-
         private Vector2 centre;
+
+        public Vector2 Centre
+        {
+            get { return centre; }
+            set { centre = value; }
+        }
         private Viewport viewport;
 
         public Camera(Viewport Viewport)

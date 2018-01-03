@@ -17,8 +17,16 @@ namespace Vancluysen.Carl
         private Vector2 spriteOrigin;
         private Vector2 velocity;
         private Vector2 spawnPosition = new Vector2(0,525);
-        private Vector2 position = new Vector2(2250,300);
-        private int life = 5;
+        private Vector2 position = new Vector2(0,525);
+        private SpriteFont livesFont;
+        private int lives = 3;
+
+        public int Lives
+        {
+            get { return lives; }
+            set { lives = value; }
+        }
+
         public Vector2 Position
         {
             get { return position; }
@@ -36,16 +44,26 @@ namespace Vancluysen.Carl
         public Animation _animation;
         private Texture2D _texture;
         private Rectangle rectangle;
-        public player(Texture2D texture)
+        private int screenHeight;
+        private int screenWidth;
+        private Camera _camera;
+        private ContentManager Content;
+        public player(Texture2D texture, Camera camera, ContentManager _content, GraphicsDevice graphicsDevice)
         {
+            Content = _content;
             _texture = texture;
+            screenWidth = graphicsDevice.Viewport.Bounds.Width;
+            screenHeight = graphicsDevice.Viewport.Bounds.Height;
             LoadAnimation();
+            _camera = camera;
+            livesFont = Content.Load<SpriteFont>("lives");
         }
 
         public void Draw(SpriteBatch spriteBatch)
         {
             spriteBatch.Draw(_texture, position, _animation.CurrentFrame.SourceRectangle, Color.White, rotation,
                 spriteOrigin, 1f, s, 0);
+            spriteBatch.DrawString(livesFont, "Lives left: " + lives, new Vector2(_camera.Centre.X - (screenWidth / 2), _camera.Centre.Y - (screenHeight / 2)), Color.Black);
         }
 
         public void Update(GameTime gametime)
@@ -57,7 +75,7 @@ namespace Vancluysen.Carl
             {
                 velocity.Y += 0.4f;
             }
-            Console.WriteLine("Player: " + spawnPosition);
+            Console.WriteLine("Player: " + rectangle);
         }
 
         private Boolean right, left, runright, runleft, bark, pee, flip = false, jumped = false;
@@ -346,10 +364,10 @@ namespace Vancluysen.Carl
             {
                 velocity.Y = 1f;
             }
-        /*    if (position.Y > y - rectangle.Height)
+            if (position.Y > y - rectangle.Height)
             {
                 position.Y = y - rectangle.Height;
-            } */
+            } 
             
         }
 
@@ -357,26 +375,26 @@ namespace Vancluysen.Carl
         {
             if (rectangle.EnemyTop(rect))
             {
-                life--;
+                lives--;
                 position = spawnPosition;
             }
             else flip = false;
         }
 
-        public void EventChecker(Rectangle rect, int ID, TileMap currentMap, Lvl1 lvl1, Lvl2 lvl2, SpriteBatch spriteBatch)
+        public void EventChecker(Events events, TileMap currentMap, Lvl1 lvl1, Lvl2 lvl2, SpriteBatch spriteBatch)
         {
-            if (rectangle.TreeChecker(rect, pee == true, ID = 0))
+            if (rectangle.eventCheck(events.Rectangle, pee == true) && events.EventID == 0)
             {
                 spawnPosition.X = rectangle.X;
                 spawnPosition.Y = rectangle.Y;
             }
-            if(rectangle.TreeChecker(rect, bark == true, ID = 1))
+            if(rectangle.eventCheck(events.Rectangle, bark == true) && events.EventID == 1)
             {
                 if (lvl1.Finished == false)
                 {
                     spawnPosition.X = 0;
                     spawnPosition.Y = 525;
-                    position.X = 2100;
+                    position.X = 0;
                     position.Y = 525;
                     currentMap.LevelID++;
                     currentMap.Finished = true;
@@ -385,6 +403,12 @@ namespace Vancluysen.Carl
                 {
                     currentMap.Finished = true;
                 }
+            }
+            if (rectangle.eventCheck(events.Rectangle, bark == true) && events.EventID == 2 && events.IsChecked == false)
+            {
+                lives++;
+                events.IsChecked = true;
+                events.Texture = Content.Load<Texture2D>("lifetaken");
             }
         }
         private bool isStill()

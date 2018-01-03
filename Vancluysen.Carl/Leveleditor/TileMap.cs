@@ -23,7 +23,7 @@ namespace Vancluysen.Carl.Leveleditor
 
         protected Rectangle bpos;
         protected Rectangle bposUnder;
-        protected Texture2D background, backgroundUnderground, enemygfx, tree, mapEnd;
+        protected Texture2D background, backgroundUnderground, enemygfx, tree, mapEnd, lifepoint;
         private int width;
 
         public int Width
@@ -68,6 +68,7 @@ namespace Vancluysen.Carl.Leveleditor
             tree = Content.Load<Texture2D>("tree");
             mapEnd = Content.Load<Texture2D>("flag");
             enemygfx = Content.Load<Texture2D>("police");
+            lifepoint = Content.Load<Texture2D>("lifepoint");
             bpos = new Rectangle(0, 0, 2550, 700);
             bposUnder = new Rectangle(0, 700, 2550, 600);
             entityManager = new EntityManager();

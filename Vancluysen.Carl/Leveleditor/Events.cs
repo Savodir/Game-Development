@@ -9,9 +9,8 @@ using Microsoft.Xna.Framework.Graphics;
 
 namespace Vancluysen.Carl.Leveleditor
 {
-    class Events: EventHandler
+    class Events : EventHandler
     {
-
         private static ContentManager content;
 
         public static ContentManager Content
@@ -19,6 +18,7 @@ namespace Vancluysen.Carl.Leveleditor
             get { return content; }
             set { content = value; }
         }
+
         private Texture2D texture;
 
         public Texture2D Texture
@@ -44,12 +44,12 @@ namespace Vancluysen.Carl.Leveleditor
             set { rectangle = value; }
         }
 
-        private bool isChecker;
+        private bool isChecked;
 
         public bool IsChecked
         {
-            get { return isChecker; }
-            set { isChecker = value; }
+            get { return isChecked; }
+            set { isChecked = value; }
         }
 
         public Events(int _eventID, Texture2D _texture, Vector2 _position)
@@ -57,7 +57,7 @@ namespace Vancluysen.Carl.Leveleditor
             eventID = _eventID;
             texture = _texture;
             position = _position;
-            rectangle = new Rectangle((int)position.X, (int)position.Y , texture.Width, texture.Height);
+            rectangle = new Rectangle((int) position.X, (int) position.Y, texture.Width, texture.Height);
         }
 
         public void Draw(SpriteBatch spriteBatch)

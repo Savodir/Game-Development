@@ -61,14 +61,14 @@ namespace Vancluysen.Carl.Leveleditor
             set { finished = value; }
         }
 
-        private ContentManager Content;
+        private ContentManager content;
         public TileMap(ContentManager _content)
         {
-            Content = _content;
-            tree = Content.Load<Texture2D>("tree");
-            mapEnd = Content.Load<Texture2D>("flag");
-            enemygfx = Content.Load<Texture2D>("police");
-            lifepoint = Content.Load<Texture2D>("lifepoint");
+            content = _content;
+            tree = content.Load<Texture2D>("tree");
+            mapEnd = content.Load<Texture2D>("flag");
+            enemygfx = content.Load<Texture2D>("police");
+            lifepoint = content.Load<Texture2D>("lifepoint");
             bpos = new Rectangle(0, 0, 2550, 700);
             bposUnder = new Rectangle(0, 700, 2550, 600);
             entityManager = new EntityManager();

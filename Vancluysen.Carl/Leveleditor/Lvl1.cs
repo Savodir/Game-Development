@@ -20,7 +20,7 @@ class Lvl1: TileMap
         set { rectangle = value; }
     }
 
-        private static ContentManager content;
+    private static ContentManager content;
 
     public static ContentManager Content
     {
@@ -28,11 +28,11 @@ class Lvl1: TileMap
         set { content = value; }
     }
 
-        public Lvl1(ContentManager Content):base(Content)
+        public Lvl1(ContentManager content):base(Content)
         {       Generate();
             Finished = false;
-            background = Content.Load<Texture2D>("harbor");
-            backgroundUnderground = Content.Load<Texture2D>("ruien");
+            background = content.Load<Texture2D>("harbor");
+            backgroundUnderground = content.Load<Texture2D>("ruien");
             EntityManager.Enemies.Add(new Enemy(enemygfx, new Vector2(525, 300), 125));
             EntityManager.Enemies.Add(new Enemy(enemygfx, new Vector2(900, 250), 200));
             EntityManager.Enemies.Add(new Enemy(enemygfx, new Vector2(1325, 350), 125));

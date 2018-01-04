@@ -25,7 +25,7 @@ namespace Vancluysen.Carl
         private double x = 0;
         public double offset { get; set; }
 
-        private int _totalWidth = 0;
+        private int totalWidth = 0;
 
         public Animation()
         {
@@ -44,7 +44,7 @@ namespace Vancluysen.Carl
             CurrentFrame = frames[0];
             offset = CurrentFrame.SourceRectangle.Width;
             foreach (AnimationFrame f in frames)
-                _totalWidth += f.SourceRectangle.Width;
+                totalWidth += f.SourceRectangle.Width;
         }
 
 
@@ -63,7 +63,7 @@ namespace Vancluysen.Carl
                 CurrentFrame = frames[counter];
                 offset += CurrentFrame.SourceRectangle.Width;
             }
-            if (offset >= _totalWidth)
+            if (offset >= totalWidth)
                 offset = 0;
         }
     }

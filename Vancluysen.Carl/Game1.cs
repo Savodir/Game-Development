@@ -8,6 +8,7 @@ using Microsoft.Xna.Framework.Input;
 using Vancluysen.Carl.AI;
 using Vancluysen.Carl.Leveleditor;
 using Vancluysen.Carl.Leveleditor;
+
 namespace Vancluysen.Carl
 {
     /// <summary>
@@ -15,12 +16,14 @@ namespace Vancluysen.Carl
     /// </summary>
     public class Game1 : Game
     {
+
+
+        #region Objects and vars
         GraphicsDeviceManager graphics;
         SpriteBatch spriteBatch;
         private TileMap Current;
         private Lvl1 Lvl1;
         private Lvl2 Lvl2;
-        #region Objects and vars
         player player;
         private Camera camera;
         private Texture2D enemygfx;
@@ -39,14 +42,18 @@ namespace Vancluysen.Carl
 
         enum GameState
         {
-            MainMenu,  Game
+            MainMenu,
+            Game
         }
+
         private GameState gameState = GameState.MainMenu;
+
         public Game1()
         {
             graphics = new GraphicsDeviceManager(this);
             Content.RootDirectory = "Content";
         }
+
         /// <summary>
         /// Allows the game to perform any initialization it needs to before starting to run.
         /// This is where it can query for any required services and load any non-graphic
@@ -87,7 +94,7 @@ namespace Vancluysen.Carl
             pausedTexture = Content.Load<Texture2D>("Paused");
             pausedRectangle = new Rectangle(340, 160, 150, 150);
             btnQuit = new Menu(Content.Load<Texture2D>("Quit"), graphics.GraphicsDevice);
-            btnQuit.pos(new Vector2(350,275));
+            btnQuit.pos(new Vector2(350, 275));
             //Apply
             graphics.ApplyChanges();
         }
@@ -108,7 +115,8 @@ namespace Vancluysen.Carl
         /// <param name="gameTime">Provides a snapshot of timing values.</param>
         protected override void Update(GameTime gameTime)
         {
-            if (GamePad.GetState(PlayerIndex.One).Buttons.Back == ButtonState.Pressed || Keyboard.GetState().IsKeyDown(Keys.Escape))
+            if (GamePad.GetState(PlayerIndex.One).Buttons.Back == ButtonState.Pressed ||
+                Keyboard.GetState().IsKeyDown(Keys.Escape))
                 Exit();
             // TODO: Add your update logic here
             base.Update(gameTime);
@@ -121,7 +129,6 @@ namespace Vancluysen.Carl
                     if (btnStart.click == true)
                     {
                         gameState = GameState.Game;
-                        
                     }
                     btnStart.Update(mouse);
                     break;
@@ -146,15 +153,15 @@ namespace Vancluysen.Carl
                         //Enemy Collision pls help
                         foreach (Enemy enemies in Current.EntityManager.Enemies)
                         {
-                         player.EnemyCollision(enemies.Rectangle);
+                            player.EnemyCollision(enemies.Rectangle);
                             Console.WriteLine("Enemy: " + enemies.Rectangle);
                         }
                         foreach (Events events in Current.EventHandler.EventsList)
                         {
-                           player.EventChecker(events, Current, Lvl1, Lvl2, spriteBatch);
+                            player.EventChecker(events, Current, Lvl1, Lvl2, spriteBatch);
                         }
-                        if (Lvl1.Finished == true) Current = Lvl2; 
-                      spriteBatch.End();
+                        if (Lvl1.Finished == true) Current = Lvl2;
+                        spriteBatch.End();
                         //Update
                         Current.EntityManager.Update(gameTime);
                         player.Update(gameTime);
@@ -177,7 +184,6 @@ namespace Vancluysen.Carl
                     break;
             }
             Console.WriteLine(Lvl2.Finished);
-
         }
 
         /// <summary>
@@ -189,15 +195,18 @@ namespace Vancluysen.Carl
             GraphicsDevice.Clear(Color.Gray);
             spriteBatch.Begin();
             switch (gameState)
-            {   //Menu
+            {
+                //Menu
                 case GameState.MainMenu:
-                    spriteBatch.Draw(Content.Load<Texture2D>("MenuBack"), new Rectangle(0, 0, backgroundWidth, backgroundHeight), Color.White);
+                    spriteBatch.Draw(Content.Load<Texture2D>("MenuBack"),
+                        new Rectangle(0, 0, backgroundWidth, backgroundHeight), Color.White);
                     btnStart.Draw(spriteBatch);
                     break;
                 //Game
                 case GameState.Game:
                     spriteBatch.End();
-                    spriteBatch.Begin(SpriteSortMode.Deferred, BlendState.AlphaBlend, null, null, null, null, camera.Transform);
+                    spriteBatch.Begin(SpriteSortMode.Deferred, BlendState.AlphaBlend, null, null, null, null,
+                        camera.Transform);
                     Current.Draw(spriteBatch);
                     Current.EntityManager.Draw(spriteBatch);
                     player.Controls();
@@ -207,23 +216,26 @@ namespace Vancluysen.Carl
                     if (Lvl2.Finished == true)
                     {
                         spriteBatch.Begin();
-                        spriteBatch.Draw(Content.Load<Texture2D>("endscreen"), new Rectangle(0, 0, backgroundWidth, backgroundHeight), Color.White);
+                        spriteBatch.Draw(Content.Load<Texture2D>("endscreen"),
+                            new Rectangle(0, 0, backgroundWidth, backgroundHeight), Color.White);
                         spriteBatch.End();
                     }
                     if (player.Lives == 0)
                     {
                         spriteBatch.Begin();
-                        spriteBatch.Draw(Content.Load<Texture2D>("gameover"), new Rectangle(0, 0, backgroundWidth, backgroundHeight), Color.White);
+                        spriteBatch.Draw(Content.Load<Texture2D>("gameover"),
+                            new Rectangle(0, 0, backgroundWidth, backgroundHeight), Color.White);
                         spriteBatch.End();
                     }
 
-                   
+
                     break;
             }
             if (paused == true)
             {
                 spriteBatch.Begin();
-                spriteBatch.Draw(Content.Load<Texture2D>("MenuBack"), new Rectangle(0, 0, backgroundWidth, backgroundHeight), Color.White);
+                spriteBatch.Draw(Content.Load<Texture2D>("MenuBack"),
+                    new Rectangle(0, 0, backgroundWidth, backgroundHeight), Color.White);
                 spriteBatch.Draw(pausedTexture, pausedRectangle, Color.White);
                 btnStart.Draw(spriteBatch);
                 btnQuit.Draw(spriteBatch);

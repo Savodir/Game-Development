@@ -30,13 +30,12 @@ namespace Vancluysen.Carl.Leveleditor
             set { content = value; }
         }
 
-        public Lvl2(ContentManager Content):base(Content)
+        public Lvl2(ContentManager content):base(content)
         {
-            background = Content.Load<Texture2D>("centraalstation");
-            backgroundUnderground = Content.Load<Texture2D>("metro");
+            background = content.Load<Texture2D>("centraalstation");
+            backgroundUnderground = content.Load<Texture2D>("metro");
             Generate();
             Finished = false;
-
             EntityManager.Enemies.Add(new Enemy(enemygfx, new Vector2(350, 450), 100));
             EntityManager.Enemies.Add(new Enemy(enemygfx, new Vector2(900, 250), 100));
             EntityManager.Enemies.Add(new Enemy(enemygfx, new Vector2(1200, 1000), 150));

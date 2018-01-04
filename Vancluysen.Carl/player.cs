@@ -41,36 +41,36 @@ namespace Vancluysen.Carl
 
         private float rotation;
         private SpriteEffects s = new SpriteEffects();
-        public Animation _animation;
-        private Texture2D _texture;
+        public Animation animation;
+        private Texture2D texture;
         private Rectangle rectangle;
         private int screenHeight;
         private int screenWidth;
-        private Camera _camera;
-        private ContentManager Content;
-        public player(Texture2D texture, Camera camera, ContentManager _content, GraphicsDevice graphicsDevice)
+        private Camera camera;
+        private ContentManager content;
+        public player(Texture2D _texture, Camera _camera, ContentManager _content, GraphicsDevice graphicsDevice)
         {
-            Content = _content;
-            _texture = texture;
+            content = _content;
+            texture = _texture;
             screenWidth = graphicsDevice.Viewport.Bounds.Width;
             screenHeight = graphicsDevice.Viewport.Bounds.Height;
             LoadAnimation();
-            _camera = camera;
-            livesFont = Content.Load<SpriteFont>("lives");
+            camera = _camera;
+            livesFont = content.Load<SpriteFont>("lives");
         }
 
         public void Draw(SpriteBatch spriteBatch)
         {
-            spriteBatch.Draw(_texture, position, _animation.CurrentFrame.SourceRectangle, Color.White, rotation,
+            spriteBatch.Draw(texture, position, animation.CurrentFrame.SourceRectangle, Color.White, rotation,
                 spriteOrigin, 1f, s, 0);
-            spriteBatch.DrawString(livesFont, "Lives left: " + lives, new Vector2(_camera.Centre.X - (screenWidth / 2), _camera.Centre.Y - (screenHeight / 2)), Color.Black);
+            spriteBatch.DrawString(livesFont, "Lives left: " + lives, new Vector2(camera.Centre.X - (screenWidth / 2), camera.Centre.Y - (screenHeight / 2)), Color.Black);
         }
 
         public void Update(GameTime gametime)
         {
             position += velocity;
             MoveControl(gametime);
-            rectangle = new Rectangle((int)position.X, (int)position.Y, _animation.CurrentFrame.SourceRectangle.Width, _animation.CurrentFrame.SourceRectangle.Height);
+            rectangle = new Rectangle((int)position.X, (int)position.Y, animation.CurrentFrame.SourceRectangle.Width, animation.CurrentFrame.SourceRectangle.Height);
           if (velocity.Y < 10)
             {
                 velocity.Y += 0.4f;
@@ -86,7 +86,7 @@ namespace Vancluysen.Carl
             if (stateKey.IsKeyDown(Keys.A))
             {
                 left = true;
-                _animation = AnimWalk;
+                animation = AnimWalk;
                 s = SpriteEffects.FlipHorizontally;
             }
             if (stateKey.IsKeyUp(Keys.A))
@@ -96,7 +96,7 @@ namespace Vancluysen.Carl
             if (stateKey.IsKeyDown(Keys.D))
             {
                 right = true;
-                _animation = AnimWalk;
+                animation = AnimWalk;
                 s = SpriteEffects.None;
             }
             if (stateKey.IsKeyUp(Keys.D))
@@ -106,7 +106,7 @@ namespace Vancluysen.Carl
             if (stateKey.IsKeyDown(Keys.D) && stateKey.IsKeyDown(Keys.LeftShift))
             {
                 runright = true;
-                _animation = AnimRun;
+                animation = AnimRun;
             }
             if (stateKey.IsKeyUp(Keys.D) || stateKey.IsKeyUp(Keys.LeftShift))
             {
@@ -115,25 +115,25 @@ namespace Vancluysen.Carl
             if (stateKey.IsKeyDown(Keys.A) && stateKey.IsKeyDown(Keys.LeftShift))
             {
                 runleft = true;
-                _animation = AnimRun;
+                animation = AnimRun;
             }
             if (stateKey.IsKeyUp(Keys.A) || stateKey.IsKeyUp(Keys.LeftShift))
             {
                 runleft = false;
             }
-            if (stateKey.IsKeyDown(Keys.E) && isStill() == true)
+            if (stateKey.IsKeyDown(Keys.E) && IsStill() == true)
             {
                 bark = true;
-                _animation = AnimBark;
+                animation = AnimBark;
             }
             if (stateKey.IsKeyUp(Keys.E))
             {
                 bark = false;
             }
-            if (stateKey.IsKeyDown(Keys.Q) && isStill() == true)
+            if (stateKey.IsKeyDown(Keys.Q) && IsStill() == true)
             {
                 pee = true;
-                _animation = AnimPee;
+                animation = AnimPee;
             }
             if (stateKey.IsKeyUp(Keys.Q))
             {
@@ -141,7 +141,7 @@ namespace Vancluysen.Carl
             }
             if (flip == true)
             {
-                _animation = AnimFlip;
+                animation = AnimFlip;
                 position.Y -= 5;
                 velocity.Y = -10f;
             }
@@ -152,7 +152,7 @@ namespace Vancluysen.Carl
                 runright = false;
                 runleft = false;
                 velocity.X = 0f;
-                _animation = AnimIdle;
+                animation = AnimIdle;
             }
             if (stateKey.IsKeyDown(Keys.Space) && jumped == false)
             {
@@ -161,13 +161,13 @@ namespace Vancluysen.Carl
                 jumped = true;
                 AnimJump.Counter = 0;
             }
-            if (jumped == true) _animation = AnimJump;
+            if (jumped == true) animation = AnimJump;
 
-            else if (isStill() == true && bark == false &&
+            else if (IsStill() == true && bark == false &&
                      pee == false)
             {
                 velocity.X = 0f;
-                _animation = AnimIdle;
+                animation = AnimIdle;
             }
         }
 
@@ -326,7 +326,7 @@ namespace Vancluysen.Carl
             }
             else
             {
-                _animation = AnimIdle;
+                animation = AnimIdle;
                 AnimIdle.Update(gametime);
             }
         }
@@ -344,7 +344,7 @@ namespace Vancluysen.Carl
             {
                 position.X = rect.X - rectangle.Width - 5;
             }
-            if (rectangle.onRight(rect))
+            if (rectangle.OnRight(rect))
             {
                 position.X = rect.X + rectangle.Width + 15;
             }
@@ -383,12 +383,12 @@ namespace Vancluysen.Carl
 
         public void EventChecker(Events events, TileMap currentMap, Lvl1 lvl1, Lvl2 lvl2, SpriteBatch spriteBatch)
         {
-            if (rectangle.eventCheck(events.Rectangle, pee == true) && events.EventID == 0)
+            if (rectangle.EventCheck(events.Rectangle, pee == true) && events.EventID == 0)
             {
                 spawnPosition.X = rectangle.X;
                 spawnPosition.Y = rectangle.Y;
             }
-            if(rectangle.eventCheck(events.Rectangle, bark == true) && events.EventID == 1)
+            if(rectangle.EventCheck(events.Rectangle, bark == true) && events.EventID == 1)
             {
                 if (lvl1.Finished == false)
                 {
@@ -404,14 +404,14 @@ namespace Vancluysen.Carl
                     currentMap.Finished = true;
                 }
             }
-            if (rectangle.eventCheck(events.Rectangle, bark == true) && events.EventID == 2 && events.IsChecked == false)
+            if (rectangle.EventCheck(events.Rectangle, bark == true) && events.EventID == 2 && events.IsChecked == false)
             {
                 lives++;
                 events.IsChecked = true;
-                events.Texture = Content.Load<Texture2D>("lifetaken");
+                events.Texture = content.Load<Texture2D>("lifetaken");
             }
         }
-        private bool isStill()
+        private bool IsStill()
         {
             if (right == false && left == false && runleft == false && runright == false && jumped == false &&
                 flip == false) return true;

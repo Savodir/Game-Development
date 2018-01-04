@@ -33,7 +33,7 @@ namespace Vancluysen.Carl.Collision
                     r1.Top >= r2.Top + r2.Width / 4);
         }
 
-        public static bool onRight(this Rectangle r1, Rectangle r2)
+        public static bool OnRight(this Rectangle r1, Rectangle r2)
         {
             return r1.Left >= r2.Left &&
                    r1.Left <= r2.Right &&

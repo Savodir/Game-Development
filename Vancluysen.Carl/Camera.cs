@@ -27,9 +27,9 @@ namespace Vancluysen.Carl
         }
         private Viewport viewport;
 
-        public Camera(Viewport Viewport)
+        public Camera(Viewport _viewport)
         {
-            viewport = Viewport;
+            viewport = _viewport;
         }
 
         public void Update(Vector2 position, int x, int y)

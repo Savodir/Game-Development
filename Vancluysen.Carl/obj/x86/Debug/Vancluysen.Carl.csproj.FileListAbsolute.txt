@@ -114,3 +114,4 @@ E:\Game Development\Vancluysen.Carl\Vancluysen.Carl\bin\Windows\x86\Debug\Conten
 E:\Game Development\Vancluysen.Carl\Vancluysen.Carl\bin\Windows\x86\Debug\Content\gameover.xnb
 E:\Game Development\Vancluysen.Carl\Vancluysen.Carl\bin\Windows\x86\Debug\Content\lifetaken.xnb
 E:\Game Development\Vancluysen.Carl\Vancluysen.Carl\bin\Windows\x86\Debug\Content\lifepoint.xnb
+E:\Game Development\Vancluysen.Carl\Vancluysen.Carl\bin\Windows\x86\Debug\Vancluysen.Carl.exe.config

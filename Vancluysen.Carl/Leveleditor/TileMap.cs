@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Configuration;
 using System.Linq;
+using System.Runtime.CompilerServices;
 using System.Security.Cryptography.X509Certificates;
 using System.Text;
 using System.Threading.Tasks;
@@ -8,6 +10,7 @@ using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Content;
 using Microsoft.Xna.Framework.Graphics;
 using Vancluysen.Carl.AI;
+using Vancluysen.Carl.Properties;
 
 namespace Vancluysen.Carl.Leveleditor
 {
@@ -38,9 +41,7 @@ namespace Vancluysen.Carl.Leveleditor
             get { return height; }
             set { height = value; }
         }
-
         private EventHandler eventHandler;
-
         public EventHandler EventHandler
         {
             get { return eventHandler; }
@@ -94,7 +95,7 @@ namespace Vancluysen.Carl.Leveleditor
                     {
                         width = (x + 1) * size;
                         height = (y + 1) * size;
-                            collisionTiles.Add(new CollisionTiles(number, new Rectangle(x * size, y * size, size, size), Content, levelID));
+                            collisionTiles.Add(new CollisionTiles(number, new Rectangle(x * size, y * size, size, size), content, levelID));
                     }
                 }
         }

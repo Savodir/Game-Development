@@ -16,28 +16,32 @@ namespace Vancluysen.Carl
     /// </summary>
     public class Game1 : Game
     {
-
-
         #region Objects and vars
         GraphicsDeviceManager graphics;
         SpriteBatch spriteBatch;
         private TileMap Current;
         private Lvl1 Lvl1;
         private Lvl2 Lvl2;
-        player player;
+        Player player;
         private Camera camera;
         private Texture2D enemygfx;
         private Texture2D tree;
         private Texture2D mapEnd;
         private Enemy enemy;
+
         //Menu
         private Menu btnStart, btnQuit;
+
         private bool paused = false;
         private Texture2D pausedTexture;
+
         private Rectangle pausedRectangle;
+
         //Background
         int backgroundWidth = 800;
+
         int backgroundHeight = 600;
+
         #endregion
 
         enum GameState
@@ -82,7 +86,7 @@ namespace Vancluysen.Carl
             graphics.PreferredBackBufferWidth = backgroundWidth;
             graphics.PreferredBackBufferHeight = backgroundHeight;
             //Player
-            player = new player(Content.Load<Texture2D>("shiba"), camera, Content, graphics.GraphicsDevice);
+            player = new Player(Content.Load<Texture2D>("shiba"), camera, Content, graphics.GraphicsDevice);
             //Level
             EntityManager.Content = Content;
             Lvl1.Content = Content;
@@ -125,7 +129,6 @@ namespace Vancluysen.Carl
             {
                 //Main Menu
                 case GameState.MainMenu:
-                    //StartChecker
                     if (btnStart.click == true)
                     {
                         gameState = GameState.Game;
@@ -134,7 +137,6 @@ namespace Vancluysen.Carl
                     break;
                 //Game
                 case GameState.Game:
-                    //Game
                     if (paused == false)
                     {
                         IsMouseVisible = false;
@@ -150,18 +152,19 @@ namespace Vancluysen.Carl
                             player.Collision(tiles.Rectangle, Current.Width, Current.Height);
                             camera.Update(player.Position, Current.Width, Current.Height);
                         }
-                        //Enemy Collision pls help
+                        //Enemy Collision
                         foreach (Enemy enemies in Current.EntityManager.Enemies)
                         {
                             player.EnemyCollision(enemies.Rectangle);
-                            Console.WriteLine("Enemy: " + enemies.Rectangle);
+                           // Console.WriteLine("Enemy: " + enemies.Rectangle);
                         }
+                        //Event Checker
                         foreach (Events events in Current.EventHandler.EventsList)
                         {
                             player.EventChecker(events, Current, Lvl1, Lvl2, spriteBatch);
                         }
                         if (Lvl1.Finished == true) Current = Lvl2;
-                        spriteBatch.End();
+                       // spriteBatch.End();
                         //Update
                         Current.EntityManager.Update(gameTime);
                         player.Update(gameTime);

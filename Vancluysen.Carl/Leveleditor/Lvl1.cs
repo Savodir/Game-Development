@@ -28,7 +28,7 @@ class Lvl1: TileMap
         set { content = value; }
     }
 
-        public Lvl1(ContentManager content):base(Content)
+        public Lvl1(ContentManager content):base(content)
         {       Generate();
             Finished = false;
             background = content.Load<Texture2D>("harbor");

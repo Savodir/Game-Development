@@ -12,7 +12,7 @@ using Vancluysen.Carl.Leveleditor;
 
 namespace Vancluysen.Carl
 {
-    class player
+    class Player
     {
         private Vector2 spriteOrigin;
         private Vector2 velocity;
@@ -48,7 +48,7 @@ namespace Vancluysen.Carl
         private int screenWidth;
         private Camera camera;
         private ContentManager content;
-        public player(Texture2D _texture, Camera _camera, ContentManager _content, GraphicsDevice graphicsDevice)
+        public Player(Texture2D _texture, Camera _camera, ContentManager _content, GraphicsDevice graphicsDevice)
         {
             content = _content;
             texture = _texture;

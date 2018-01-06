@@ -48,7 +48,7 @@ namespace Vancluysen.Carl.Leveleditor
             EventHandler.EventsList.Add(new Events(0, tree, new Vector2(1443, 382)));
             EventHandler.EventsList.Add(new Events(2, lifepoint, new Vector2(1400, 925)));
             EventHandler.EventsList.Add(new Events(2, lifepoint, new Vector2(1700, 475)));
-            EventHandler.EventsList.Add(new Events(2, mapEnd, new Vector2(2220, 630)));
+            EventHandler.EventsList.Add(new Events(1, mapEnd, new Vector2(2220, 630)));
         }
 
         public void Draw(SpriteBatch spriteBatch)

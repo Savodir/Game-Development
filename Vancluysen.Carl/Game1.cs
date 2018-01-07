@@ -19,19 +19,17 @@ namespace Vancluysen.Carl
         #region Objects and vars
         GraphicsDeviceManager graphics;
         SpriteBatch spriteBatch;
-        private TileMap Current;
-        private Lvl1 Lvl1;
-        private Lvl2 Lvl2;
+        private TileMap current;
+        private Lvl1 lvl1;
+        private Lvl2 lvl2;
         Player player;
         private Camera camera;
-        private Texture2D enemygfx;
-        private Texture2D tree;
-        private Texture2D mapEnd;
         private Enemy enemy;
 
         //Menu
-        private Menu btnStart, btnQuit;
+        private Menu btnStart, btnQuit, btnQwerty, btnAzerty;
 
+        private bool qwerty = false;
         private bool paused = false;
         private Texture2D pausedTexture;
 
@@ -68,9 +66,9 @@ namespace Vancluysen.Carl
         {
             // TODO: Add your initialization logic here
             camera = new Camera(GraphicsDevice.Viewport);
-            Lvl1 = new Lvl1(Content);
-            Lvl2 = new Lvl2(Content);
-            Current = Lvl1;
+            lvl1 = new Lvl1(Content);
+            lvl2 = new Lvl2(Content);
+            current = lvl1;
             base.Initialize();
         }
 
@@ -93,12 +91,14 @@ namespace Vancluysen.Carl
             Events.Content = Content;
             //Menu
             IsMouseVisible = true;
-            btnStart = new Menu(Content.Load<Texture2D>("paw"), graphics.GraphicsDevice);
-            btnStart.pos(new Vector2(350, 350));
+            btnAzerty = new Menu(Content.Load<Texture2D>("azerty"), graphics.GraphicsDevice);
+            btnAzerty.pos(new Vector2(200, 325));
             pausedTexture = Content.Load<Texture2D>("Paused");
             pausedRectangle = new Rectangle(340, 160, 150, 150);
             btnQuit = new Menu(Content.Load<Texture2D>("Quit"), graphics.GraphicsDevice);
-            btnQuit.pos(new Vector2(350, 275));
+            btnQuit.pos(new Vector2(backgroundWidth - 125, backgroundHeight - 75));
+            btnQwerty = new Menu(Content.Load<Texture2D>("qwerty"), graphics.GraphicsDevice);
+            btnQwerty.pos(new Vector2(450,325));
             //Apply
             graphics.ApplyChanges();
         }
@@ -129,11 +129,18 @@ namespace Vancluysen.Carl
             {
                 //Main Menu
                 case GameState.MainMenu:
-                    if (btnStart.click == true)
+                    if (btnAzerty.click == true)
                     {
+                        qwerty = false;
                         gameState = GameState.Game;
                     }
-                    btnStart.Update(mouse);
+                    if (btnQwerty.click == true)
+                    {
+                        qwerty = true;
+                        gameState = GameState.Game;
+                    }
+                    btnAzerty.Update(mouse);
+                    btnQwerty.Update(mouse);
                     break;
                 //Game
                 case GameState.Game:
@@ -144,49 +151,58 @@ namespace Vancluysen.Carl
                         if (Keyboard.GetState().IsKeyDown(Keys.P))
                         {
                             paused = true;
-                            btnStart.click = false;
+                            btnQwerty.click = false;
+                            btnAzerty.click = false;
+
                         }
                         //Tile Collision
-                        foreach (CollisionTiles tiles in Current.CollisionTiles)
+                        foreach (CollisionTiles tiles in current.CollisionTiles)
                         {
-                            player.Collision(tiles.Rectangle, Current.Width, Current.Height);
-                            camera.Update(player.Position, Current.Width, Current.Height);
+                            player.Collision(tiles.Rectangle, current.Width, current.Height);
+                            camera.Update(player.Position, current.Width, current.Height);
                         }
                         //Enemy Collision
-                        foreach (Enemy enemies in Current.EntityManager.Enemies)
+                        foreach (Enemy enemies in current.EntityManager.Enemies)
                         {
                             player.EnemyCollision(enemies.Rectangle);
                            // Console.WriteLine("Enemy: " + enemies.Rectangle);
                         }
                         //Event Checker
-                        foreach (Events events in Current.EventHandler.EventsList)
+                        foreach (Events events in current.EventHandler.EventsList)
                         {
-                            player.EventChecker(events, Current, Lvl1, Lvl2, spriteBatch);
+                            player.EventChecker(events, current, lvl1, lvl2, spriteBatch);
                         }
-                        if (Lvl1.Finished == true) Current = Lvl2;
-                       // spriteBatch.End();
+                        if (lvl1.Finished == true) current = lvl2;
                         //Update
-                        Current.EntityManager.Update(gameTime);
+                        current.EntityManager.Update(gameTime);
                         player.Update(gameTime);
                     }
                     //Pause
                     else if (paused == true)
                     {
                         IsMouseVisible = true;
-                        if (btnStart.click == true)
+                        if (btnAzerty.click == true)
                         {
                             paused = false;
+                            qwerty = false;
+                        }
+                        if (btnQwerty.click == true)
+                        {
+                            paused = false;
+                            qwerty = true;
                         }
                         if (btnQuit.click == true)
                         {
                             Exit();
                         }
-                        btnStart.Update(mouse);
+                        btnAzerty.Update(mouse);
+                        btnQwerty.Update(mouse);
+
                         btnQuit.Update(mouse);
                     }
                     break;
             }
-            Console.WriteLine(Lvl2.Finished);
+            Console.WriteLine(lvl2.Finished);
         }
 
         /// <summary>
@@ -203,20 +219,23 @@ namespace Vancluysen.Carl
                 case GameState.MainMenu:
                     spriteBatch.Draw(Content.Load<Texture2D>("MenuBack"),
                         new Rectangle(0, 0, backgroundWidth, backgroundHeight), Color.White);
-                    btnStart.Draw(spriteBatch);
+                    spriteBatch.Draw(Content.Load<Texture2D>("GameName"), new Rectangle(backgroundWidth / 2 - 300,0,600,150), Color.White);
+                    spriteBatch.Draw(Content.Load<Texture2D>("keyboardlayout"), new Rectangle(backgroundWidth / 2 - 200,250,400,75), Color.White);
+                    btnAzerty.Draw(spriteBatch);
+                    btnQwerty.Draw(spriteBatch);
                     break;
                 //Game
                 case GameState.Game:
                     spriteBatch.End();
                     spriteBatch.Begin(SpriteSortMode.Deferred, BlendState.AlphaBlend, null, null, null, null,
                         camera.Transform);
-                    Current.Draw(spriteBatch);
-                    Current.EntityManager.Draw(spriteBatch);
-                    player.Controls();
-                    Current.EventHandler.Draw(spriteBatch);
+                    current.Draw(spriteBatch);
+                    current.EntityManager.Draw(spriteBatch);
+                    player.Controls(qwerty);
+                    current.EventHandler.Draw(spriteBatch);
                     player.Draw(spriteBatch);
                     spriteBatch.End();
-                    if (Lvl2.Finished == true)
+                    if (lvl2.Finished == true)
                     {
                         spriteBatch.Begin();
                         spriteBatch.Draw(Content.Load<Texture2D>("endscreen"),
@@ -237,10 +256,13 @@ namespace Vancluysen.Carl
             if (paused == true)
             {
                 spriteBatch.Begin();
-                spriteBatch.Draw(Content.Load<Texture2D>("MenuBack"),
-                    new Rectangle(0, 0, backgroundWidth, backgroundHeight), Color.White);
-                spriteBatch.Draw(pausedTexture, pausedRectangle, Color.White);
-                btnStart.Draw(spriteBatch);
+                spriteBatch.Draw(Content.Load<Texture2D>("Paused"),
+                    new Rectangle(backgroundWidth / 2 - 225, 100, 450, 75), Color.White);
+                spriteBatch.Draw(Content.Load<Texture2D>("keyboardlayout"), new Rectangle(backgroundWidth / 2 - 200, 250, 400, 75), Color.White);
+                btnAzerty.Draw(spriteBatch);
+                btnQwerty.Draw(spriteBatch);
+                spriteBatch.Draw(Content.Load<Texture2D>("pauseScreen"),
+                    new Rectangle(0, 0, backgroundWidth, backgroundHeight), new Color(Color.White, 0.5f));
                 btnQuit.Draw(spriteBatch);
             }
             // TODO: Add your drawing code here

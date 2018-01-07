@@ -80,7 +80,7 @@ namespace Vancluysen.Carl
 
         private Boolean right, left, runright, runleft, bark, pee, flip = false, jumped = false;
 
-        public void Controls()
+        public void Controls(bool qwerty)
         {
             KeyboardState stateKey = Keyboard.GetState();
             if (stateKey.IsKeyDown(Keys.A))
@@ -138,6 +138,37 @@ namespace Vancluysen.Carl
             if (stateKey.IsKeyUp(Keys.Q))
             {
                 pee = false;
+            }
+            if (qwerty == false)
+            {
+                if (stateKey.IsKeyDown(Keys.Q))
+                {
+                    left = true;
+                    animation = AnimWalk;
+                    s = SpriteEffects.FlipHorizontally;
+                }
+                if (stateKey.IsKeyUp(Keys.Q))
+                {
+                    left = false;
+                }
+                if (stateKey.IsKeyDown(Keys.Q) && stateKey.IsKeyDown(Keys.LeftShift))
+                {
+                    runleft = true;
+                    animation = AnimRun;
+                }
+                if (stateKey.IsKeyUp(Keys.Q) || stateKey.IsKeyUp(Keys.LeftShift))
+                {
+                    runleft = false;
+                }
+                if (stateKey.IsKeyDown(Keys.A) && IsStill() == true)
+                {
+                    pee = true;
+                    animation = AnimPee;
+                }
+                if (stateKey.IsKeyUp(Keys.A))
+                {
+                    pee = false;
+                }
             }
             if (flip == true)
             {
@@ -373,7 +404,7 @@ namespace Vancluysen.Carl
 
         public void EnemyCollision(Rectangle rect)
         {
-            if (rectangle.EnemyTop(rect))
+            if (rectangle.EnemyCollide(rect))
             {
                 lives--;
                 position = spawnPosition;

@@ -7,7 +7,6 @@
     <File>E:/Game Development/Vancluysen.Carl/Vancluysen.Carl/Content/shiba.png</File>
     <File>E:/Game Development/Vancluysen.Carl/Vancluysen.Carl/Content/harbor.jpg</File>
     <File>E:/Game Development/Vancluysen.Carl/Vancluysen.Carl/Content/p1_front.png</File>
-    <File>E:/Game Development/Vancluysen.Carl/Vancluysen.Carl/Content/MenuBack.png</File>
     <File>E:/Game Development/Vancluysen.Carl/Vancluysen.Carl/Content/paw.png</File>
     <File>E:/Game Development/Vancluysen.Carl/Vancluysen.Carl/Content/Quit.png</File>
     <File>E:/Game Development/Vancluysen.Carl/Vancluysen.Carl/Content/tree.png</File>
@@ -25,11 +24,17 @@
     <File>E:/Game Development/Vancluysen.Carl/Vancluysen.Carl/Content/tile8.png</File>
     <File>E:/Game Development/Vancluysen.Carl/Vancluysen.Carl/Content/tile9.png</File>
     <File>E:/Game Development/Vancluysen.Carl/Vancluysen.Carl/Content/endscreen.png</File>
-    <File>E:/Game Development/Vancluysen.Carl/Vancluysen.Carl/Content/Paused.png</File>
     <File>E:/Game Development/Vancluysen.Carl/Vancluysen.Carl/Content/police.png</File>
     <File>E:/Game Development/Vancluysen.Carl/Vancluysen.Carl/Content/lives.spritefont</File>
     <File>E:/Game Development/Vancluysen.Carl/Vancluysen.Carl/Content/gameover.jpg</File>
     <File>E:/Game Development/Vancluysen.Carl/Vancluysen.Carl/Content/lifetaken.png</File>
     <File>E:/Game Development/Vancluysen.Carl/Vancluysen.Carl/Content/lifepoint.png</File>
+    <File>E:/Game Development/Vancluysen.Carl/Vancluysen.Carl/Content/MenuBack.jpg</File>
+    <File>E:/Game Development/Vancluysen.Carl/Vancluysen.Carl/Content/GameName.png</File>
+    <File>E:/Game Development/Vancluysen.Carl/Vancluysen.Carl/Content/azerty.png</File>
+    <File>E:/Game Development/Vancluysen.Carl/Vancluysen.Carl/Content/qwerty.png</File>
+    <File>E:/Game Development/Vancluysen.Carl/Vancluysen.Carl/Content/keyboardlayout.png</File>
+    <File>E:/Game Development/Vancluysen.Carl/Vancluysen.Carl/Content/pauseScreen.png</File>
+    <File>E:/Game Development/Vancluysen.Carl/Vancluysen.Carl/Content/Paused.png</File>
   </SourceFiles>
 </SourceFileCollection>

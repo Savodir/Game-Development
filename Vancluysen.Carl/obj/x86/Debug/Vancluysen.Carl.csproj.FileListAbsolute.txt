@@ -115,3 +115,8 @@ E:\Game Development\Vancluysen.Carl\Vancluysen.Carl\bin\Windows\x86\Debug\Conten
 E:\Game Development\Vancluysen.Carl\Vancluysen.Carl\bin\Windows\x86\Debug\Content\lifetaken.xnb
 E:\Game Development\Vancluysen.Carl\Vancluysen.Carl\bin\Windows\x86\Debug\Content\lifepoint.xnb
 E:\Game Development\Vancluysen.Carl\Vancluysen.Carl\bin\Windows\x86\Debug\Vancluysen.Carl.exe.config
+E:\Game Development\Vancluysen.Carl\Vancluysen.Carl\bin\Windows\x86\Debug\Content\GameName.xnb
+E:\Game Development\Vancluysen.Carl\Vancluysen.Carl\bin\Windows\x86\Debug\Content\azerty.xnb
+E:\Game Development\Vancluysen.Carl\Vancluysen.Carl\bin\Windows\x86\Debug\Content\qwerty.xnb
+E:\Game Development\Vancluysen.Carl\Vancluysen.Carl\bin\Windows\x86\Debug\Content\keyboardlayout.xnb
+E:\Game Development\Vancluysen.Carl\Vancluysen.Carl\bin\Windows\x86\Debug\Content\pauseScreen.xnb

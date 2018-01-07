@@ -54,11 +54,11 @@ namespace Vancluysen.Carl
                     click = true;
                 }
             }
-            else if (color.A < 255)
+         /*   else if (color.A < 255)
             {
                 color.A += 3;
                 click = false;
-            }
+            }*/
         }
 
         public void pos(Vector2 _position)

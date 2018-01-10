@@ -17,7 +17,7 @@ namespace Vancluysen.Carl
         private Vector2 spriteOrigin;
         private Vector2 velocity;
         private Vector2 spawnPosition = new Vector2(0,525);
-        private Vector2 position = new Vector2(0,525);
+        private Vector2 position = new Vector2(1800,525);
         private SpriteFont livesFont;
         private int lives = 3;
 
@@ -425,7 +425,7 @@ namespace Vancluysen.Carl
                 {
                     spawnPosition.X = 0;
                     spawnPosition.Y = 525;
-                    position.X = 0;
+                    position.X = 1800;
                     position.Y = 525;
                     currentMap.LevelID++;
                     currentMap.Finished = true;

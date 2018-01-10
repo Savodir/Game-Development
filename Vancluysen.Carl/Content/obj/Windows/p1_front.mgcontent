@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <PipelineBuildEvent xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-  <SourceFile>E:/Game Development/Vancluysen.Carl/Vancluysen.Carl/Content/p1_front.png</SourceFile>
-  <SourceTime>2013-05-20T04:51:16+02:00</SourceTime>
-  <DestFile>E:/Game Development/Vancluysen.Carl/Vancluysen.Carl/Content/bin/Windows/p1_front.xnb</DestFile>
-  <DestTime>2017-12-30T19:35:33.2665418+01:00</DestTime>
+  <SourceFile>D:/GitHub/Game-Development/Vancluysen.Carl/Content/p1_front.png</SourceFile>
+  <SourceTime>2018-01-08T19:21:21.1063955+01:00</SourceTime>
+  <DestFile>D:/GitHub/Game-Development/Vancluysen.Carl/Content/bin/Windows/p1_front.xnb</DestFile>
+  <DestTime>2018-01-08T19:28:50.7699891+01:00</DestTime>
   <Importer>TextureImporter</Importer>
   <ImporterTime>2017-03-01T16:05:36+01:00</ImporterTime>
   <Processor>TextureProcessor</Processor>

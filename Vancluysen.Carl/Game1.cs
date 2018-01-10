@@ -1,14 +1,10 @@
 ﻿using System;
-using System.CodeDom;
-using System.Collections.Generic;
-using System.Diagnostics.Eventing.Reader;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
 using Vancluysen.Carl.AI;
 using Vancluysen.Carl.Leveleditor;
-using Vancluysen.Carl.Leveleditor;
-
+using Vancluysen.Carl.Properties;
 namespace Vancluysen.Carl
 {
     /// <summary>
@@ -32,14 +28,14 @@ namespace Vancluysen.Carl
         private bool qwerty = false;
         private bool paused = false;
         private Texture2D pausedTexture;
-
+        private SpriteFont font;
         private Rectangle pausedRectangle;
 
         //Background
         int backgroundWidth = 800;
-
         int backgroundHeight = 600;
-
+        int hiscore;
+        int currentscore;
         #endregion
 
         enum GameState
@@ -49,6 +45,8 @@ namespace Vancluysen.Carl
         }
 
         private GameState gameState = GameState.MainMenu;
+        private int screenWidth;
+        private int screenHeight;
 
         public Game1()
         {
@@ -78,6 +76,7 @@ namespace Vancluysen.Carl
         /// </summary>
         protected override void LoadContent()
         {
+            hiscore = (int)Settings.Default["hiscore"];
             // Create a new SpriteBatch, which can be used to draw textures.
             spriteBatch = new SpriteBatch(GraphicsDevice);
             //Background
@@ -85,6 +84,8 @@ namespace Vancluysen.Carl
             graphics.PreferredBackBufferHeight = backgroundHeight;
             //Player
             player = new Player(Content.Load<Texture2D>("shiba"), camera, Content, graphics.GraphicsDevice);
+            font = Content.Load<SpriteFont>("hiscore");
+            currentscore = player.Lives;
             //Level
             EntityManager.Content = Content;
             Lvl1.Content = Content;
@@ -176,6 +177,7 @@ namespace Vancluysen.Carl
                         //Update
                         current.EntityManager.Update(gameTime);
                         player.Update(gameTime);
+                        Console.WriteLine(hiscore);
                     }
                     //Pause
                     else if (paused == true)
@@ -221,6 +223,7 @@ namespace Vancluysen.Carl
                         new Rectangle(0, 0, backgroundWidth, backgroundHeight), Color.White);
                     spriteBatch.Draw(Content.Load<Texture2D>("GameName"), new Rectangle(backgroundWidth / 2 - 300,0,600,150), Color.White);
                     spriteBatch.Draw(Content.Load<Texture2D>("keyboardlayout"), new Rectangle(backgroundWidth / 2 - 200,250,400,75), Color.White);
+                    spriteBatch.DrawString(font, "Current Highscore: " + hiscore, new Vector2(backgroundWidth / 2 - 120, backgroundHeight - 100), Color.White);
                     btnAzerty.Draw(spriteBatch);
                     btnQwerty.Draw(spriteBatch);
                     break;
@@ -239,7 +242,17 @@ namespace Vancluysen.Carl
                     {
                         spriteBatch.Begin();
                         spriteBatch.Draw(Content.Load<Texture2D>("endscreen"),
-                            new Rectangle(0, 0, backgroundWidth, backgroundHeight), Color.White);
+                            new Rectangle(0, 0, backgroundWidth, backgroundHeight), Color.White);  
+                        spriteBatch.DrawString(font, "Your score: " + player.Lives, new Vector2(50,165), Color.White);
+                        if(currentscore > hiscore)
+                        {
+                            spriteBatch.DrawString(font, "New Highscore!", new Vector2(50, 100), Color.White);
+                            Settings.Default["hiscore"] = player.Lives;
+                            Settings.Default.Save();
+                        }
+                        else {
+                            spriteBatch.DrawString(font, "Highscore: " + hiscore, new Vector2(50, 200), Color.White);
+                             }
                         spriteBatch.End();
                     }
                     if (player.Lives == 0)

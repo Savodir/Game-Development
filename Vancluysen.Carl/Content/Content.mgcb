@@ -392,3 +392,10 @@
 /processorParam:TextureFormat=Color
 /build:Paused.png
 
+#begin hiscore.spritefont
+/importer:FontDescriptionImporter
+/processor:FontDescriptionProcessor
+/processorParam:PremultiplyAlpha=True
+/processorParam:TextureFormat=Compressed
+/build:hiscore.spritefont
+

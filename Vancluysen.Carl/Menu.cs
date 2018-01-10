@@ -15,9 +15,7 @@ namespace Vancluysen.Carl
         private Vector2 position;
         private Rectangle rectangle;
         Color color = new Color(255,255,255,255);
-
         public Vector2 size;
-
         public Menu(Texture2D _texture, GraphicsDevice graphics)
         {
             texture = _texture;
@@ -37,7 +35,7 @@ namespace Vancluysen.Carl
                 {
                     down = false;
                 }
-                if (color.A == 0)
+                if (color.A == 120)
                 {
                     down = true;
                 }
@@ -54,11 +52,11 @@ namespace Vancluysen.Carl
                     click = true;
                 }
             }
-         /*   else if (color.A < 255)
+            else if (color.A < 255)
             {
                 color.A += 3;
                 click = false;
-            }*/
+            }
         }
 
         public void pos(Vector2 _position)

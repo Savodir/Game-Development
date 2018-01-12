@@ -178,3 +178,4 @@ D:\GitHub\Game-Development\Vancluysen.Carl\obj\x86\Debug\Vancluysen.Carl.csproj.
 D:\GitHub\Game-Development\Vancluysen.Carl\obj\x86\Debug\Vancluysen.Carl.exe
 D:\GitHub\Game-Development\Vancluysen.Carl\obj\x86\Debug\Vancluysen.Carl.pdb
 D:\GitHub\Game-Development\Vancluysen.Carl\bin\Windows\x86\Debug\Content\hiscore.xnb
+E:\Game Development\Vancluysen.Carl\Vancluysen.Carl\bin\Windows\x86\Debug\Content\hiscore.xnb

@@ -44,9 +44,10 @@ namespace Vancluysen.Carl.AI
         private float distance;
         private float oldDistance;
         private SpriteEffects s = new SpriteEffects();
-
-        public Enemy(Texture2D _texture, Vector2 _position, float _distance)
+        private float speed;
+        public Enemy(Texture2D _texture, Vector2 _position, float _distance, float _speed)
         {
+            speed = _speed;
             texture = _texture;
             position = _position;
             distance = _distance;
@@ -64,22 +65,22 @@ namespace Vancluysen.Carl.AI
             if (distance <= 0)
             {
                 right = true;
-                velocity.X = 1f;
+                velocity.X = speed;
             }
         else if (distance >= oldDistance)
             {
                 right = false;
-                velocity.X = -1f;
+                velocity.X = - speed;
 
             }
 
             if (right == true)
             {
-                distance += 1;
+                distance += speed;
             }
             else
             {
-               distance -= 1f;
+               distance -= speed;
             }
             rectangle = new Rectangle((int)position.X, (int)position.Y, animation.CurrentFrame.SourceRectangle.Width, animation.CurrentFrame.SourceRectangle.Height);
 
@@ -92,6 +93,7 @@ namespace Vancluysen.Carl.AI
             oldDistance = distance;
         }
         private Animation PoliceWalk;
+        private Animation train;
         private void LoadAnimation()
         {
             PoliceWalk = new Animation();
@@ -100,6 +102,9 @@ namespace Vancluysen.Carl.AI
             PoliceWalk.AddFrame(new Rectangle(108, 140, 30, 50));
             PoliceWalk.AddFrame(new Rectangle(156, 140, 30, 50));
             PoliceWalk.FramesPerS = 15;
+            train = new Animation();
+            train.AddFrame(new Rectangle(2, 101, 292, 106));
+
         }
 
         public void Draw(SpriteBatch spriteBatch)
@@ -107,14 +112,12 @@ namespace Vancluysen.Carl.AI
             if (velocity.X > 0)
             {
                 s = SpriteEffects.None;
-
                 spriteBatch.Draw(texture, position, PoliceWalk.CurrentFrame.SourceRectangle, Color.White, rotation, origin, 1f, s, 0f);
             }
             else
             {
                 s = SpriteEffects.FlipHorizontally;
                 spriteBatch.Draw(texture, position, PoliceWalk.CurrentFrame.SourceRectangle, Color.White, rotation, origin, 1f, s , 0f);
-
             }
         }
 

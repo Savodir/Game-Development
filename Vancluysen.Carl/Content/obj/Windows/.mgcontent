@@ -4,38 +4,38 @@
   <Platform>Windows</Platform>
   <Config />
   <SourceFiles>
-    <File>D:/GitHub/Game-Development/Vancluysen.Carl/Content/shiba.png</File>
-    <File>D:/GitHub/Game-Development/Vancluysen.Carl/Content/harbor.jpg</File>
-    <File>D:/GitHub/Game-Development/Vancluysen.Carl/Content/p1_front.png</File>
-    <File>D:/GitHub/Game-Development/Vancluysen.Carl/Content/paw.png</File>
-    <File>D:/GitHub/Game-Development/Vancluysen.Carl/Content/Quit.png</File>
-    <File>D:/GitHub/Game-Development/Vancluysen.Carl/Content/tree.png</File>
-    <File>D:/GitHub/Game-Development/Vancluysen.Carl/Content/ruien.jpg</File>
-    <File>D:/GitHub/Game-Development/Vancluysen.Carl/Content/flag.png</File>
-    <File>D:/GitHub/Game-Development/Vancluysen.Carl/Content/centraalstation.jpg</File>
-    <File>D:/GitHub/Game-Development/Vancluysen.Carl/Content/metro.jpg</File>
-    <File>D:/GitHub/Game-Development/Vancluysen.Carl/Content/tile1.png</File>
-    <File>D:/GitHub/Game-Development/Vancluysen.Carl/Content/tile2.png</File>
-    <File>D:/GitHub/Game-Development/Vancluysen.Carl/Content/tile3.png</File>
-    <File>D:/GitHub/Game-Development/Vancluysen.Carl/Content/tile4.png</File>
-    <File>D:/GitHub/Game-Development/Vancluysen.Carl/Content/tile5.png</File>
-    <File>D:/GitHub/Game-Development/Vancluysen.Carl/Content/tile6.png</File>
-    <File>D:/GitHub/Game-Development/Vancluysen.Carl/Content/tile7.png</File>
-    <File>D:/GitHub/Game-Development/Vancluysen.Carl/Content/tile8.png</File>
-    <File>D:/GitHub/Game-Development/Vancluysen.Carl/Content/tile9.png</File>
-    <File>D:/GitHub/Game-Development/Vancluysen.Carl/Content/endscreen.png</File>
-    <File>D:/GitHub/Game-Development/Vancluysen.Carl/Content/police.png</File>
-    <File>D:/GitHub/Game-Development/Vancluysen.Carl/Content/lives.spritefont</File>
-    <File>D:/GitHub/Game-Development/Vancluysen.Carl/Content/gameover.jpg</File>
-    <File>D:/GitHub/Game-Development/Vancluysen.Carl/Content/lifetaken.png</File>
-    <File>D:/GitHub/Game-Development/Vancluysen.Carl/Content/lifepoint.png</File>
-    <File>D:/GitHub/Game-Development/Vancluysen.Carl/Content/MenuBack.jpg</File>
-    <File>D:/GitHub/Game-Development/Vancluysen.Carl/Content/GameName.png</File>
-    <File>D:/GitHub/Game-Development/Vancluysen.Carl/Content/azerty.png</File>
-    <File>D:/GitHub/Game-Development/Vancluysen.Carl/Content/qwerty.png</File>
-    <File>D:/GitHub/Game-Development/Vancluysen.Carl/Content/keyboardlayout.png</File>
-    <File>D:/GitHub/Game-Development/Vancluysen.Carl/Content/pauseScreen.png</File>
-    <File>D:/GitHub/Game-Development/Vancluysen.Carl/Content/Paused.png</File>
-    <File>D:/GitHub/Game-Development/Vancluysen.Carl/Content/hiscore.spritefont</File>
+    <File>E:/Game Development/Vancluysen.Carl/Vancluysen.Carl/Content/shiba.png</File>
+    <File>E:/Game Development/Vancluysen.Carl/Vancluysen.Carl/Content/harbor.jpg</File>
+    <File>E:/Game Development/Vancluysen.Carl/Vancluysen.Carl/Content/p1_front.png</File>
+    <File>E:/Game Development/Vancluysen.Carl/Vancluysen.Carl/Content/paw.png</File>
+    <File>E:/Game Development/Vancluysen.Carl/Vancluysen.Carl/Content/Quit.png</File>
+    <File>E:/Game Development/Vancluysen.Carl/Vancluysen.Carl/Content/tree.png</File>
+    <File>E:/Game Development/Vancluysen.Carl/Vancluysen.Carl/Content/ruien.jpg</File>
+    <File>E:/Game Development/Vancluysen.Carl/Vancluysen.Carl/Content/flag.png</File>
+    <File>E:/Game Development/Vancluysen.Carl/Vancluysen.Carl/Content/centraalstation.jpg</File>
+    <File>E:/Game Development/Vancluysen.Carl/Vancluysen.Carl/Content/metro.jpg</File>
+    <File>E:/Game Development/Vancluysen.Carl/Vancluysen.Carl/Content/tile1.png</File>
+    <File>E:/Game Development/Vancluysen.Carl/Vancluysen.Carl/Content/tile2.png</File>
+    <File>E:/Game Development/Vancluysen.Carl/Vancluysen.Carl/Content/tile3.png</File>
+    <File>E:/Game Development/Vancluysen.Carl/Vancluysen.Carl/Content/tile4.png</File>
+    <File>E:/Game Development/Vancluysen.Carl/Vancluysen.Carl/Content/tile5.png</File>
+    <File>E:/Game Development/Vancluysen.Carl/Vancluysen.Carl/Content/tile6.png</File>
+    <File>E:/Game Development/Vancluysen.Carl/Vancluysen.Carl/Content/tile7.png</File>
+    <File>E:/Game Development/Vancluysen.Carl/Vancluysen.Carl/Content/tile8.png</File>
+    <File>E:/Game Development/Vancluysen.Carl/Vancluysen.Carl/Content/tile9.png</File>
+    <File>E:/Game Development/Vancluysen.Carl/Vancluysen.Carl/Content/endscreen.png</File>
+    <File>E:/Game Development/Vancluysen.Carl/Vancluysen.Carl/Content/police.png</File>
+    <File>E:/Game Development/Vancluysen.Carl/Vancluysen.Carl/Content/lives.spritefont</File>
+    <File>E:/Game Development/Vancluysen.Carl/Vancluysen.Carl/Content/gameover.jpg</File>
+    <File>E:/Game Development/Vancluysen.Carl/Vancluysen.Carl/Content/lifetaken.png</File>
+    <File>E:/Game Development/Vancluysen.Carl/Vancluysen.Carl/Content/lifepoint.png</File>
+    <File>E:/Game Development/Vancluysen.Carl/Vancluysen.Carl/Content/MenuBack.jpg</File>
+    <File>E:/Game Development/Vancluysen.Carl/Vancluysen.Carl/Content/GameName.png</File>
+    <File>E:/Game Development/Vancluysen.Carl/Vancluysen.Carl/Content/azerty.png</File>
+    <File>E:/Game Development/Vancluysen.Carl/Vancluysen.Carl/Content/qwerty.png</File>
+    <File>E:/Game Development/Vancluysen.Carl/Vancluysen.Carl/Content/keyboardlayout.png</File>
+    <File>E:/Game Development/Vancluysen.Carl/Vancluysen.Carl/Content/pauseScreen.png</File>
+    <File>E:/Game Development/Vancluysen.Carl/Vancluysen.Carl/Content/Paused.png</File>
+    <File>E:/Game Development/Vancluysen.Carl/Vancluysen.Carl/Content/hiscore.spritefont</File>
   </SourceFiles>
 </SourceFileCollection>
